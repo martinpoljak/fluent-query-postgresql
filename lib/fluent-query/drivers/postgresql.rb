@@ -160,11 +160,8 @@ module FluentQuery
                 server = @_nconnection_settings[:server]
                 port = @_nconnection_settings[:port]
                 socket = @_nconnection_settings[:socket]
-                encoding = @_nconnection_settings[:encoding]
                 schema = @_nconnection_settings[:schema]
                 database = @_nconnection_settings[:database]
-                username = @_nconnection_settings[:username]
-                password = @_nconnection_settings[:password]
                 
                 # Builds connection string and other parameters
                 
@@ -184,6 +181,16 @@ module FluentQuery
                 # Returns 
                 return connection_string
                 
+            end
+
+            ##
+            # Returns authentification settings.
+            # @return [Array] with username and password
+            #
+            
+            public
+            def authentification
+                @_nconnection_settings.get_values(:user, :password)
             end
 
             ##
