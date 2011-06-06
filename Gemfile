@@ -4,8 +4,8 @@ source "http://rubygems.org"
    gem "fluent-query-dbi", ">= 0.1.0"
    gem "fluent-query-sql", ">= 0.1.0"
    gem "fluent-query", ">= 0.1.0"
-   gem "dbi", ">= 0.4.5"
    gem "dbd-pg", ">= 0.3.9"
+   gem "hash-utils", ">= 0.15.0"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

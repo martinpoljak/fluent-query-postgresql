@@ -1,4 +1,6 @@
 # encoding: utf-8
+require "hash-utils/hash" # >= 0.15.0
+
 require "fluent-query/drivers/dbi"
 require "fluent-query/drivers/exception"
 require "fluent-query/drivers/shared/tokens/sql"
@@ -160,7 +162,6 @@ module FluentQuery
                 server = @_nconnection_settings[:server]
                 port = @_nconnection_settings[:port]
                 socket = @_nconnection_settings[:socket]
-                schema = @_nconnection_settings[:schema]
                 database = @_nconnection_settings[:database]
                 
                 # Builds connection string and other parameters
@@ -190,7 +191,7 @@ module FluentQuery
             
             public
             def authentification
-                @_nconnection_settings.get_values(:user, :password)
+                @_nconnection_settings.take_values(:username, :password)
             end
 
             ##
@@ -219,7 +220,7 @@ module FluentQuery
                 super()
 
                 # Gets settings
-                encoding = @_nconnection_settings[:encoding]
+                encoding, schema = @_nconnection_settings.take_values(:encoding, :schema)
                 
                 if encoding.nil?
                     encoding = "UTF8"
