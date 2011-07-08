@@ -12,7 +12,7 @@ module FluentQuery
          # PostgreSQL database driver.
          #
          
-         class PostgreSQLDriver < FluentQuery::Drivers::DBI
+         class PostgreSQL < FluentQuery::Drivers::DBI
 
             ##
             # Contains relevant methods index for this driver.
@@ -75,7 +75,7 @@ module FluentQuery
                 :rightJoin => :join,
                 :fullJoin => :join
             }
-
+            
             ##
             # Indicates tokens already required.
             #
