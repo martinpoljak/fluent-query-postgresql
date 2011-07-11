@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "hash-utils/hash" # >= 0.15.0
 
-require "fluent-query/dr_tokens_requiredivers/dbi"
+require "fluent-query/drivers/dbi"
 require "fluent-query/drivers/exception"
 require "fluent-query/drivers/shared/tokens/sql"
 
