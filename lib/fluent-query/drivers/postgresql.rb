@@ -100,7 +100,7 @@ module FluentQuery
                 @_nconnection.do("SET NAMES " << self.quote_string(encoding) << ";")
 
                 if not schema.nil?
-                    @_nconnection.do("SET search_path = " << schema << ", pg_catalog;")
+                    @_nconnection.do("SET search_path = " << self.quote_identifier(schema) << ", pg_catalog;")
                 end
 
                 return @_nconnection
